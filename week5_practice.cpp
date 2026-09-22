@@ -57,6 +57,19 @@ class LimitedEvent : public CampusEvent
 // ===== Resolve these TODOs later (Part D) =====
 
 // TODO (Part D): Write a function template named largerValue.
+    template <typename T> // no se si se podia poner asi <typename largerValue>, preguntar. siguiendo ejemplo de git.
+    // se puede usar return (first > second) ? first : second;? no lo he visto 
+    T largerValue(const T &first,const T &second)
+    {
+        if( first>second)
+        {
+            return first;
+        }
+        else
+        {
+            return second;
+        }
+    }
 // It receives two const references of the same generic type and returns the larger value.
 // Do not write separate int and double versions.
 
@@ -70,6 +83,7 @@ int main() {
     // ===== Resolve these TODOs later (Part E) =====
 
     // TODO (Part E): Create a LimitedEvent with dummy data.
+
     // TODO (Part E): Store the addresses of openEvent and your LimitedEvent
     // in two CampusEvent pointers. Call printDetails() through both pointers.
     // TODO (Part E): Use largerValue with two int values and with two double values.
