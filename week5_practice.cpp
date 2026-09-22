@@ -49,7 +49,7 @@ class LimitedEvent : public CampusEvent
         void printDetails() const override
         // override es una jerarquia de herencia de las clases la clase campus event declara una funcion virtual la cual se adaptó a limitevent
         {
-            cout<< getName() <<"available seats"<< availableseats << endl;
+            cout<< getName() <<"available seats: "<< availableseats << endl;
         }
         // Use getName() and print the number of available seats.
 };
@@ -58,7 +58,7 @@ class LimitedEvent : public CampusEvent
 
 // TODO (Part D): Write a function template named largerValue.
     template <typename T> // no se si se podia poner asi <typename largerValue>, preguntar. siguiendo ejemplo de git.
-    // se puede usar return (first > second) ? first : second;? no lo he visto 
+    // se puede usar return (first > second) ? first : second;? no lo he visto pero un compañero lo utilizo.
     T largerValue(const T &first,const T &second)
     {
         if( first>second)
@@ -81,13 +81,24 @@ int main() {
     openEvent.printDetails(); // This call uses CampusEvent::printDetails directly.
 
     // ===== Resolve these TODOs later (Part E) =====
-
     // TODO (Part E): Create a LimitedEvent with dummy data.
-
+    LimitedEvent limitedEvent("Robotics Workshop", 80);
     // TODO (Part E): Store the addresses of openEvent and your LimitedEvent
     // in two CampusEvent pointers. Call printDetails() through both pointers.
+    CampusEvent* eventPtr1 = &openEvent;
+    CampusEvent* eventPtr2 = &limitedEvent;
+    eventPtr1->printDetails();
+    eventPtr2->printDetails();
+
+     cout << "--- Polymorphism ---" << endl; // para q se vea bonito y como el ejemplo
     // TODO (Part E): Use largerValue with two int values and with two double values.
     // Print each result with a descriptive English label.
+    int largerAttendees = largerValue(45, 80);
+    double largerRating = largerValue(4.2, 4.7);
+    cout<< "--- Function template ---"<< endl;
+    cout << "Larger estimated attendees: " << largerAttendees << endl;
+    cout << "Larger average rating: " << largerRating << endl;
+
 
     return 0;
 }
